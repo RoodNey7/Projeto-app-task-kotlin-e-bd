@@ -8,10 +8,17 @@ import android.text.method.LinkMovementMethod
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import com.example.taskapp.api.EnderecoAPI
+import com.example.taskapp.api.RetrofitHelper
 import com.example.taskapp.databinding.ActivityMainBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 lateinit var binding: ActivityMainBinding
 public class MainActivity : AppCompatActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -34,5 +41,14 @@ public class MainActivity : AppCompatActivity() {
                     opengit.data= Uri.parse("https://github.com/RoodNey7")
 
                     startActivity(opengit)
+        } }
+
+        binding.btnEntrar.setOnClickListener {
+            IrParaSegundaTela()
         }
-    } } }
+    }
+private fun IrParaSegundaTela(){
+    val segundaTela = Intent(this, MainActivity2::class.java)
+    startActivity(segundaTela)
+    }
+}
